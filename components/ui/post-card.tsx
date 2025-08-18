@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 interface PostCardProps extends React.HTMLAttributes<HTMLElement> {
@@ -11,18 +14,33 @@ export default function postCard({
   className,
   ...props
 }: PostCardProps) {
+  const [hintDisplay, setHintDisplay] = useState<boolean>(false);
+  const [answerDisplay, setAnswerDisplay] = useState<boolean>(false);
+
   return (
     <article
       className={cn(
-        "w-full rounded-xl border bg-card p-4 text-card-foreground shadow",
+        "w-full rounded-xl border bg-card text-card-foreground shadow",
         className
       )}
       {...props}
     >
-      <div className="py-1">
-        <span className="font-semibold">{author}</span>
+      <div className="px-4 pt-4">
+        <div className="py-1">
+          <span className="font-semibold">{author}</span>
+        </div>
+        <div className="py-2">
+          <p>{children}</p>
+        </div>
       </div>
-      <div className="py-1">{children}</div>
+      <div className="flex h-12 w-full flex-row overflow-hidden rounded-b-xl border border-0 border-t">
+        <button className="hover:bg-hovered flex w-1/2 items-center justify-center border border-0 border-r transition">
+          <span className="font-semibold">ヒントをみる</span>
+        </button>
+        <button className="hover:bg-hovered flex w-1/2 items-center justify-center transition">
+          <span className="font-semibold">答えをみる</span>
+        </button>
+      </div>
     </article>
   );
 }
