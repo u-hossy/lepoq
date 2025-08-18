@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Noto_Sans_JP } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
@@ -13,8 +13,7 @@ export const metadata: Metadata = {
   description: "Let's Post Quiz!",
 };
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const notoSansJp = Noto_Sans_JP({
   display: "swap",
   subsets: ["latin"],
 });
@@ -26,7 +25,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" suppressHydrationWarning>
-      <body className={`${geistSans.className} antialiased`}>
+      <body className={`${notoSansJp.className} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
