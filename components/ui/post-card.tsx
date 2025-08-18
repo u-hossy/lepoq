@@ -36,27 +36,37 @@ export default function postCard({
               <p>{children}</p>
             </div>
           </div>
-          {hintDisplay && (
+          <div
+            className={cn(
+              "overflow-hidden transition-all duration-500 ease-in-out",
+              hintDisplay ? "max-h-screen" : "max-h-0"
+            )}
+          >
             <div className="py-1">
               <span className="font-semibold">ヒント</span>
               <div className="pb-2">
                 <p>{children}</p>
               </div>
             </div>
-          )}
-          {answerDisplay && (
+          </div>
+          <div
+            className={cn(
+              "overflow-hidden transition-all duration-500 ease-in-out",
+              answerDisplay ? "max-h-screen" : "max-h-0"
+            )}
+          >
             <div className="py-1">
               <span className="font-semibold">答え</span>
               <div className="pb-2">
                 <p>{children}</p>
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
       <div className="flex h-12 w-full flex-row overflow-hidden rounded-b-xl border border-0 border-t">
         <button
-          className="hover:bg-hovered flex w-1/2 items-center justify-center border border-0 border-r transition"
+          className="hover:bg-hovered flex w-1/2 items-center justify-center border border-0 border-r bg-card transition"
           onClick={() => setHintDisplay((prev) => !prev)}
         >
           <span className="font-semibold">
@@ -64,7 +74,7 @@ export default function postCard({
           </span>
         </button>
         <button
-          className="hover:bg-hovered flex w-1/2 items-center justify-center transition"
+          className="hover:bg-hovered flex w-1/2 items-center justify-center bg-card transition"
           onClick={() => setAnswerDisplay((prev) => !prev)}
         >
           <span className="font-semibold">
