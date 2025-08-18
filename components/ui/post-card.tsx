@@ -29,16 +29,47 @@ export default function postCard({
         <div className="py-1">
           <span className="font-semibold">{author}</span>
         </div>
-        <div className="py-2">
-          <p>{children}</p>
+        <div>
+          <div className="py-1">
+            <span className="font-semibold">問題</span>
+            <div className="pb-2">
+              <p>{children}</p>
+            </div>
+          </div>
+          {hintDisplay && (
+            <div className="py-1">
+              <span className="font-semibold">ヒント</span>
+              <div className="pb-2">
+                <p>{children}</p>
+              </div>
+            </div>
+          )}
+          {answerDisplay && (
+            <div className="py-1">
+              <span className="font-semibold">答え</span>
+              <div className="pb-2">
+                <p>{children}</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
       <div className="flex h-12 w-full flex-row overflow-hidden rounded-b-xl border border-0 border-t">
-        <button className="hover:bg-hovered flex w-1/2 items-center justify-center border border-0 border-r transition">
-          <span className="font-semibold">ヒントをみる</span>
+        <button
+          className="hover:bg-hovered flex w-1/2 items-center justify-center border border-0 border-r transition"
+          onClick={() => setHintDisplay((prev) => !prev)}
+        >
+          <span className="font-semibold">
+            {!hintDisplay ? "ヒントをみる" : "ヒントを隠す"}
+          </span>
         </button>
-        <button className="hover:bg-hovered flex w-1/2 items-center justify-center transition">
-          <span className="font-semibold">答えをみる</span>
+        <button
+          className="hover:bg-hovered flex w-1/2 items-center justify-center transition"
+          onClick={() => setAnswerDisplay((prev) => !prev)}
+        >
+          <span className="font-semibold">
+            {!answerDisplay ? "答えをみる" : "答えを隠す"}
+          </span>
         </button>
       </div>
     </article>
