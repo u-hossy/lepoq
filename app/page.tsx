@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </nav>
       <div className="flex w-full flex-1 flex-col items-center gap-20">
-        <div className="flex w-full flex-1 flex-col items-center gap-20 p-5">
+        <div className="flex w-full flex-1 flex-col items-center gap-20 py-5">
           <main className="flex w-11/12 flex-1 flex-col items-center gap-6 px-4 md:w-[38rem]">
             <PostCard author="ダミー投稿者">
               この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、
