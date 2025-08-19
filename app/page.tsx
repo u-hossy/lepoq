@@ -5,6 +5,8 @@ import PostCard from "@/components/ui/post-card";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
 
+import PostTimeline from "@/components/post-timeline";
+
 export default function Home() {
   return (
     <div className="flex min-h-screen flex-col items-center">
@@ -19,12 +21,12 @@ export default function Home() {
       <div className="flex w-full flex-1 flex-col items-center gap-20">
         <div className="flex w-full flex-1 flex-col items-center gap-20 py-5">
           <main className="flex w-11/12 flex-1 flex-col items-center gap-6 px-4 md:w-[38rem]">
-            <PostCard author="ダミー投稿者">
+            <PostCard author="ダミー投稿者" hint="ヒント！" answer="答え！">
               この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章はダミーです。文字の大きさ、
             </PostCard>
+            <PostTimeline />
           </main>
         </div>
-
         <footer className="mx-auto flex w-full items-center justify-center gap-8 border-t py-8 text-center text-xs">
           <p>
             Powered by{" "}
